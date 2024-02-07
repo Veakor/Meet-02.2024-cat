@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     moveCatLeft();
 
     okButton.addEventListener('click', function() {
-        catImage.src = 'https://media.giphy.com/media/kocrNZBTlCiQw/giphy.gif';
+        catImage.src = '<i src=""https://giphy.com/stickers/minogames-on-my-way-omw-going-i4ldQWj8VNnbeGDqop">via GIPHY';
         moveCatLeft(); // После нажатия кнопки, котик снова начнет бежать
     });
 
@@ -19,16 +19,16 @@ document.addEventListener('DOMContentLoaded', function() {
         noButton.style.top = randomY + 'px'; // Устанавливаем новую позицию кнопки по Y
     });
 
-    function moveCatLeft() {
-        let currentPosition = window.innerWidth; // Начальная позиция котика (с правого края)
+    function moveCatRight() {
+        let currentPosition = -catImage.width; // Начальная позиция котика (с правого края)
 
         function step() {
-            currentPosition -= 4; // Шаг движения котика
+            currentPosition += 4; // Шаг движения котика
             catImage.style.left = currentPosition + 'px'; // Обновляем позицию котика
-            if (currentPosition <= -catImage.width) { // Если котик вышел за левый край экрана
+            if (currentPosition >= window.innerWidth) { // Если котик вышел за левый край экрана
                 cancelAnimationFrame(animationId); // Останавливаем анимацию
-                catImage.style.left = window.innerWidth + 'px'; // Возвращаем котика за правый край
-                moveCatLeft(); // Начинаем анимацию снова
+                catImage.style.right = -catImage.width + 'px'; // Возвращаем котика за правый край
+                moveCatRight(); // Начинаем анимацию снова
             } else {
                 animationId = requestAnimationFrame(step); // Продолжаем анимацию
             }

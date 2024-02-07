@@ -13,7 +13,7 @@ h1 {
 }
 
 button {
-    background-color: #da87ca; 
+    background-color: #e71496; 
     color: white;
     padding: 15px 20px;
     border: 50%;
@@ -36,7 +36,8 @@ button:hover {
 #catImage {
     width: 250px; 
     height: 250px; 
-    background-color: #ee6dd5; 
+    background-color:#ffcccc; 
+    ; 
     border-radius: 50%; 
 }
 
