@@ -13,25 +13,31 @@ h1 {
 }
 
 button {
-    background-color: #ee6dd5; 
+    background-color: #da87ca; 
     color: white;
     padding: 15px 20px;
     border: 50%;
-    border-radius: 20%;
+    border-radius: 8px;
     cursor: pointer;
     margin: 10px;
+    width: 100px; 
+    height: 40px;
     
 }
 
 button:hover {
     background-color: #ae2b7e;
 }
-
-#catContainer {
-    margin-top: 50px;
+#noButton {
+    position: absolute; /* Добавляем позиционирование */
 }
+
 
 #catImage {
-    width: 200px;
-    height: auto;
+    width: 250px; 
+    height: 250px; 
+    background-color: #ee6dd5; 
+    border-radius: 50%; 
 }
+
+    
