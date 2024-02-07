@@ -13,16 +13,18 @@ h1 {
 }
 
 button {
-    background-color: #4CAF50; 
+    background-color: #ee6dd5; 
     color: white;
     padding: 15px 20px;
-    border: none;
+    border: 50%;
+    border-radius: 20%;
     cursor: pointer;
     margin: 10px;
+    
 }
 
 button:hover {
-    background-color: #6d0c49;
+    background-color: #ae2b7e;
 }
 
 #catContainer {
