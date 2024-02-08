@@ -22,8 +22,13 @@ button {
     margin: 10px;
     width: 100px; 
     height: 40px;
-    
 }
+
+.container {
+    position: relative; /* Устанавливаем relative positioning для контейнера */
+}
+
+
 
 button:hover {
     background-color: #ae2b7e;

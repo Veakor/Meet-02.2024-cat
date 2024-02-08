@@ -5,12 +5,27 @@ document.addEventListener('DOMContentLoaded', function() {
     let animationId; // Переменная для идентификатора анимации
 
     // Начнем анимацию котика сразу после загрузки страницы
-    moveCatLeft();
+    moveCatRight();
 
     okButton.addEventListener('click', function() {
-        catImage.src = '<i src=""https://giphy.com/stickers/minogames-on-my-way-omw-going-i4ldQWj8VNnbeGDqop">via GIPHY';
-        moveCatLeft(); // После нажатия кнопки, котик снова начнет бежать
+        catImage.src = 'https://media.giphy.com/media/i4ldQWj8VNnbeGDqop/giphy.gif';
+        moveCatRight(); // После нажатия кнопки, котик снова начнет бежать
     });
+      // Функция для позиционирования кнопки "NO" под кнопкой "OK"
+    function positionNoButton() {
+        const okButtonRect = okButton.getBoundingClientRect(); // Получаем координаты и размеры кнопки "OK"
+        noButton.style.position = 'absolute'; // Устанавливаем абсолютное позиционирование для кнопки "NO"
+        noButton.style.left = okButtonRect.left + 'px'; // Устанавливаем позицию по горизонтали, чтобы кнопка "NO" была слева от кнопки "OK"
+        noButton.style.top = okButtonRect.bottom + 'px'; // Устанавливаем позицию по вертикали, чтобы кнопка "NO" была под кнопкой "OK"
+    }
+    positionNoButton();
+
+    // Пересчитываем позицию кнопки "NO" при изменении размеров окна
+    window.addEventListener('resize', positionNoButton);
+});
+    noButton.style.position = 'absolute'; // Устанавливаем позиционирование кнопки "NO"
+    noButton.style.top = okButton.offsetTop + 'px'; // Устанавливаем начальную позицию кнопки "NO" по вертикали (рядом с кнопкой "OK")
+    noButton.style.left = (okButton.offsetLeft + okButton.offsetWidth + 10) + 'px'; // Устанавливаем начальную позицию кнопки "NO" по горизонтали (немного справа от кнопки "OK")
 
     noButton.addEventListener('mouseenter', function() {
         const randomX = Math.random() * (window.innerWidth - noButton.offsetWidth); // Генерируем случайную координату X
@@ -20,14 +35,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function moveCatRight() {
-        let currentPosition = -catImage.width; // Начальная позиция котика (с правого края)
+        let currentPosition = -catImage.width; // Начальная позиция котика (с левого края)
 
         function step() {
-            currentPosition += 4; // Шаг движения котика
+            currentPosition += 4; // Шаг движения котика (увеличиваем currentPosition, чтобы кот бежал с лева на право)
             catImage.style.left = currentPosition + 'px'; // Обновляем позицию котика
-            if (currentPosition >= window.innerWidth) { // Если котик вышел за левый край экрана
+            if (currentPosition >= window.innerWidth) { // Если котик вышел за правый край экрана
                 cancelAnimationFrame(animationId); // Останавливаем анимацию
-                catImage.style.right = -catImage.width + 'px'; // Возвращаем котика за правый край
+                catImage.style.left = -catImage.width + 'px'; // Возвращаем котика за левый край
                 moveCatRight(); // Начинаем анимацию снова
             } else {
                 animationId = requestAnimationFrame(step); // Продолжаем анимацию
@@ -46,9 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
         noButton.style.left = randomX + 'px'; // Устанавливаем новую позицию кнопки по X
         noButton.style.top = randomY + 'px'; // Устанавливаем новую позицию кнопки по Y
     }
-
-    // Вызываем функцию для перемещения кнопки "NO" сразу после загрузки страницы
-    moveNoButton();
+  
 
     // Вызываем функцию для перемещения кнопки "NO" при каждом нажатии на нее
     noButton.addEventListener('click', moveNoButton);
