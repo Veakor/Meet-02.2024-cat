@@ -1,49 +1,51 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #ffcccc; 
+    background-color: #ffcccc;
     text-align: center;
 }
 
 .container {
     margin-top: 50px;
+    position: relative; /* Используем relative positioning для контейнера */
+    justify-content: center; /* Выравнивание по горизонтали */
+    align-items: top; /* Выравнивание по вертикали */
+    height: 100vh;
 }
+
 
 h1 {
     color: #333;
 }
 
 button {
-    background-color: #e71496; 
+    background-color: #e71496;
     color: white;
     padding: 15px 20px;
-    border: 50%;
+    border: none;
     border-radius: 8px;
     cursor: pointer;
     margin: 10px;
-    width: 100px; 
+    width: 100px;
     height: 40px;
 }
-
-.container {
-    position: relative; /* Устанавливаем relative positioning для контейнера */
-}
-
-
 
 button:hover {
     background-color: #ae2b7e;
 }
-#noButton {
-    position: absolute; /* Добавляем позиционирование */
-}
 
+#noButton {
+    position: absolute;
+}
 
 #catImage {
-    width: 250px; 
-    height: 250px; 
-    background-color:#ffcccc; 
-    ; 
-    border-radius: 50%; 
+    width: 250px;
+    height: 250px;
+    background-color: #ffcccc;
+    border-radius: 50%;
+    margin-top: 20px; /* Добавляем небольшое отступание сверху */
 }
+
+
+
 
     

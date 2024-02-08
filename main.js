@@ -11,21 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
         catImage.src = 'https://media.giphy.com/media/i4ldQWj8VNnbeGDqop/giphy.gif';
         moveCatRight(); // После нажатия кнопки, котик снова начнет бежать
     });
-      // Функция для позиционирования кнопки "NO" под кнопкой "OK"
-    function positionNoButton() {
-        const okButtonRect = okButton.getBoundingClientRect(); // Получаем координаты и размеры кнопки "OK"
-        noButton.style.position = 'absolute'; // Устанавливаем абсолютное позиционирование для кнопки "NO"
-        noButton.style.left = okButtonRect.left + 'px'; // Устанавливаем позицию по горизонтали, чтобы кнопка "NO" была слева от кнопки "OK"
-        noButton.style.top = okButtonRect.bottom + 'px'; // Устанавливаем позицию по вертикали, чтобы кнопка "NO" была под кнопкой "OK"
-    }
-    positionNoButton();
 
-    // Пересчитываем позицию кнопки "NO" при изменении размеров окна
-    window.addEventListener('resize', positionNoButton);
-});
-    noButton.style.position = 'absolute'; // Устанавливаем позиционирование кнопки "NO"
-    noButton.style.top = okButton.offsetTop + 'px'; // Устанавливаем начальную позицию кнопки "NO" по вертикали (рядом с кнопкой "OK")
-    noButton.style.left = (okButton.offsetLeft + okButton.offsetWidth + 10) + 'px'; // Устанавливаем начальную позицию кнопки "NO" по горизонтали (немного справа от кнопки "OK")
+    // Позиционируем кнопку "NO" под кнопкой "OK" при загрузке страницы
+    positionNoButton();
 
     noButton.addEventListener('mouseenter', function() {
         const randomX = Math.random() * (window.innerWidth - noButton.offsetWidth); // Генерируем случайную координату X
@@ -61,7 +49,14 @@ document.addEventListener('DOMContentLoaded', function() {
         noButton.style.left = randomX + 'px'; // Устанавливаем новую позицию кнопки по X
         noButton.style.top = randomY + 'px'; // Устанавливаем новую позицию кнопки по Y
     }
-  
+
+    // Функция для позиционирования кнопки "NO" под кнопкой "OK"
+    function positionNoButton() {
+        const okButtonRect = okButton.getBoundingClientRect(); // Получаем координаты и размеры кнопки "OK"
+        noButton.style.position = 'absolute'; // Устанавливаем абсолютное позиционирование для кнопки "NO"
+        noButton.style.left = okButtonRect.left ; // Устанавливаем позицию по горизонтали, чтобы кнопка "NO" была слева от кнопки "OK"
+        noButton.style.top = okButtonRect.bottom + 'px'; // Устанавливаем позицию по вертикали, чтобы кнопка "NO" была под кнопкой "OK"
+    }
 
     // Вызываем функцию для перемещения кнопки "NO" при каждом нажатии на нее
     noButton.addEventListener('click', moveNoButton);
